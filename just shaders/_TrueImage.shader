@@ -12,6 +12,8 @@
         
         ZTest Always // this is what makes the shader visible through anything
 
+        Blend SrcAlpha OneMinusSrcAlpha // this allows for transparency
+
         Pass
         {
             CGPROGRAM
