@@ -26,4 +26,8 @@ halfLit:
 trueSight:
 - Ignores trueColor shader
 
+trueImage:
+- Able to be seen through walls
+- Displays any image in an absolute position on the screen
+
 These effects can be combined with other shaders, feel free to open up the files and experiment with the code.
