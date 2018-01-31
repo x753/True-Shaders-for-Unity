@@ -1,10 +1,11 @@
-﻿Shader "753/trueScroll"
+Shader "753/trueScroll"
 {
     Properties
     {
         _MainTex("Texture", 2D) = "white" {}
         _ScrollSpeedX("Scroll Speed X", Range(0,10)) = 5
         _ScrollSpeedY("Scroll Speed Y", Range(0,10)) = 5
+        _Brightness("Brightness", Range(0,1)) = 0
     }
     
     SubShader
@@ -23,6 +24,7 @@
         sampler2D _MainTex;
         fixed _ScrollSpeedX;
         fixed _ScrollSpeedY;
+        fixed _Brightness;
 
         void surf(Input IN, inout SurfaceOutput o)
         {
@@ -33,6 +35,7 @@
             scrolledUV = scrolledUV + fixed2(scrollX, scrollY);
             half4 tex = tex2D(_MainTex, scrolledUV);
             o.Albedo = o.Albedo + tex.rgb;
+            o.Emission = tex.rgb - (1 - _Brightness);
             o.Alpha = tex.a;
         }
         ENDCG
