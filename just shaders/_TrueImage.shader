@@ -14,6 +14,12 @@
 
         Blend SrcAlpha OneMinusSrcAlpha // this allows for transparency
 
+        Stencil // this is what allows true sight to work
+        {
+            Ref 753
+            Comp NotEqual
+        }
+
         Pass
         {
             CGPROGRAM
